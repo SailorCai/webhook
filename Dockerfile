@@ -6,6 +6,6 @@ WORKDIR /app
 # 安装依赖
 RUN npm install
 # 对外暴露的端口
-EXPOSE 3000
+EXPOSE 7777
 #程序启动脚本
 CMD ["node", "webhook.js"]

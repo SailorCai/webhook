@@ -8,4 +8,4 @@ RUN npm install
 # 对外暴露的端口
 EXPOSE 3000
 #程序启动脚本
-CMD ['node', 'webhook.js']
+CMD ["node", "webhook.js"]

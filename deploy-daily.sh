@@ -1,3 +1,6 @@
+#!/bin/bash
+# 确保脚本抛出遇到的错误
+set -e
 # 停掉容器
 docker stop blog_v1
 # 删除容器

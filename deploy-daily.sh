@@ -14,4 +14,4 @@ cd ..
 # 重新定制镜像
 docker build -t blog:latest .
 # 启动镜像
-docker run -p 3000:7777 -d blog:latest --name blog_v1
+docker run -p 80:80 -d blog:latest --name blog_v1

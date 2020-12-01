@@ -1,3 +1,10 @@
+/*
+ * @Author: SailorCai
+ * @Date: 2020-12-01 23:10:43
+ * @LastEditors: SailorCai
+ * @LastEditTime: 2020-12-01 23:37:00
+ * @FilePath: /webhook/webhook.js
+ */
 const http = require('http')
 const createHandler = require('github-webhook-handler');
 const handler = createHandler({
@@ -21,6 +28,7 @@ handler.on('error', err => {
 handler.on('push', event => {
   console.log('Received a push event for $s to $s ', event.payload.repository.name, event.payload.ref)
   // 分支判断
+  conosle.log('event.payload.ref', event.payload.ref);
   if(event.payload.ref === 'refs/heads/master') {
     console.log('deploy master...');
     run_cmd('sh', ['./deploy-daily.sh'], function(text) { console.log(text) })

@@ -2,7 +2,7 @@
  * @Author: SailorCai
  * @Date: 2020-12-01 23:10:43
  * @LastEditors: SailorCai
- * @LastEditTime: 2020-12-02 00:28:58
+ * @LastEditTime: 2020-12-02 11:17:38
  * @FilePath: /webhook/webhook.js
  */
 const http = require('http')
@@ -40,6 +40,9 @@ function run_cmd(cmd, args, callback) {
   var child = spawn(cmd, args);
 
   var outStr = '';
-  child.stdout.on('data', function(buffer) {outStr += buffer.toString()});
+  child.stdout.on('data', function(buffer) {
+    // outStr += buffer.toString()
+    callback(buffer.toString());
+  });
   child.stdout.on('end', function() {callback(outStr)})
 }

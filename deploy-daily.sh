@@ -18,12 +18,12 @@ docker ps
   echo 'no container named blog_v1'
 }
 # 进入到博客代码目录
-cd ../blog/code/
+cd ../blog
+mkdir code
 pwd
 # 拉取最新代码
-git pull
+git clone git@github.com:SailorCai/blog.git code
 # 回到Dockerfile目录
-cd ..
 pwd
 # 重新定制镜像
 docker build -t blog:latest .

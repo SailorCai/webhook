@@ -27,5 +27,7 @@ cd ..
 pwd
 # 重新定制镜像
 docker build -t blog:latest .
+echo 'biuld finish'
 # 启动镜像
 docker run -p 80:80 --name blog_v1 -d blog:latest
+echo 'run finish'

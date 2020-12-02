@@ -19,6 +19,7 @@ docker ps
 }
 # 进入到博客代码目录
 cd ../blog
+rm -rf code
 mkdir code
 pwd
 # 拉取最新代码

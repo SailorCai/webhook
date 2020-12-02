@@ -6,9 +6,17 @@ echo 'begin deploy blog'
 pwd
 docker ps
 # 停掉容器
-docker stop blog_v1
+{
+  docker stop blog_v1
+} || {
+  echo 'no container named blog_v1'
+}
 # 删除容器
-docker rm blog_v1 
+{
+  docker rm blog_v1 
+} || {
+  echo 'no container named blog_v1'
+}
 # 进入到博客代码目录
 cd ../blog/code/
 # 拉取最新代码

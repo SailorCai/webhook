@@ -4,6 +4,7 @@ set -e
 # 输出日志
 echo 'begin deploy blog'
 pwd
+dcoker ps
 # 停掉容器
 docker stop blog_v1
 # 删除容器

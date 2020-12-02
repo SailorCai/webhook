@@ -4,7 +4,7 @@ set -e
 # 停掉容器
 docker stop blog_v1
 # 删除容器
-docker rm blog_v1
+docker rm blog_v1 
 # 进入到博客代码目录
 cd ../blog/code/
 # 拉取最新代码
@@ -14,4 +14,4 @@ cd ..
 # 重新定制镜像
 docker build -t blog:latest .
 # 启动镜像
-docker run -p 80:80 -d blog:latest --name blog_v1
+docker run -p 80:80 --name blog_v1 -d blog:latest

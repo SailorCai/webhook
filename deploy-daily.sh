@@ -19,10 +19,12 @@ docker ps
 }
 # 进入到博客代码目录
 cd ../blog/code/
+pwd
 # 拉取最新代码
 git pull
 # 回到Dockerfile目录
 cd ..
+pwd
 # 重新定制镜像
 docker build -t blog:latest .
 # 启动镜像

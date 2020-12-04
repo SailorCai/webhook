@@ -14,11 +14,11 @@ const handler = createHandler({
 })
 
 const serOptions = {
-  IncomingMessage: http.request
+  IncomingMessage: http.ClientRequest 
 };
 
 const app = http.createServer((req, res) => {
-  // console.log(res);
+  console.log(res.url);
   if(req.url === '/api/getUser') {
     console.log(666);
     res.statusCode = 200;

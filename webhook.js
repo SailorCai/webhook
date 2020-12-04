@@ -6,16 +6,24 @@
  * @FilePath: /webhook/webhook.js
  */
 const http = require('http')
+const Buffer = require('buffer')
 const createHandler = require('github-webhook-handler');
 const handler = createHandler({
   path: '/docker_deploy',
   secret: 'this_is_my_deploy'
 })
 
+const serOptions = {
+  IncomingMessage: http.request
+};
+
 const app = http.createServer((req, res) => {
-  handler(req, res, err => {
-    res.statusCode = 404;
-    res.end({
+  // console.log(res);
+  if(req.url === '/api/getUser') {
+    console.log(666);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json;charset=UTF-8');
+    res.end(JSON.stringify({
       code: 0,
       sucess: true,
       data: {
@@ -25,8 +33,13 @@ const app = http.createServer((req, res) => {
         avatar: 'http://115.159.95.246/blog/assets/img/avatar.jpg'
       },
       message: '小伙，接口通了！'
-    });
-  })
+    }));
+  }else{
+    handler(req, res, err => {
+      res.statusCode = 404;
+      res.end('no such location');
+    })
+  };
 }).listen(7777, () => {
   console.log('webhook listen at port 7777');
 });

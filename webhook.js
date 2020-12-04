@@ -7,7 +7,7 @@
  */
 const http = require('http')
 const Buffer = require('buffer')
-const url = require('URL')
+const url = require('url')
 const createHandler = require('github-webhook-handler');
 const handler = createHandler({
   path: '/docker_deploy',

@@ -7,6 +7,7 @@
  */
 const http = require('http')
 const Buffer = require('buffer')
+const url = require('URL')
 const createHandler = require('github-webhook-handler');
 const handler = createHandler({
   path: '/docker_deploy',
@@ -14,12 +15,14 @@ const handler = createHandler({
 })
 
 const serOptions = {
-  IncomingMessage: http.ClientRequest 
+  IncomingMessage: 'request' 
 };
 
 const app = http.createServer((req, res) => {
-  console.log(res.url);
-  if(req.url === '/api/getUser') {
+  console.log(req.url);
+  const urlObject = url.parse(req.url);
+  console.log(urlObject);
+  if(urlObject.pathname === '/api/getUser') {
     console.log(666);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json;charset=UTF-8');

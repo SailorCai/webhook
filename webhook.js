@@ -8,7 +8,17 @@ const handler = createHandler({
 const app = http.createServer((req, res) => {
   handler(req, res, err => {
     res.statusCode = 404;
-    res.end('no such location');
+    res.end({
+      code: 0,
+      sucess: true,
+      data: {
+        userName: 'sailorCai',
+        userId: 'fdnjj1kxkig6d2d6g62f6gfd',
+        slogan: '功夫再高，也怕菜刀！',
+        avatar: 'http://115.159.95.246/blog/assets/img/avatar.jpg'
+      },
+      message: '小伙，接口通了！'
+    });
   })
 }).listen(7777, () => {
   console.log('webhook listen at port 7777');
